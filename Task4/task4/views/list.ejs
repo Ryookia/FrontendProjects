@@ -1,0 +1,27 @@
+# Listing
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Health</th>
+    <th>Damage</th>
+    <th>Cost</th>
+    <th>Type</th>
+    <th>Delete</th>
+    <th>Edit</th>
+  </tr>
+  <% for(var i = 0; i < units.length; i++) {%>
+  <tr>
+  <td> <%= units[i].id %> </td>
+  <td> <%= units[i].name %> </td>
+  <td> <%= units[i].health %> </td>
+  <td> <%= units[i].damage %> </td>
+  <td> <%= units[i].cost %> </td>
+  <td> <%= units[i].type %> </td>
+  <td> <a href="/unit/delete/<%= units[i].id %>" class="btn btn-light">X</a>
+  <td> <a href="/unit/edit/<%= units[i].id %>" class="btn btn-light">Edit</a>
+  </tr>
+<% } %>
+</table>
+
+<a href="/unit/add"> Add new unit </a>

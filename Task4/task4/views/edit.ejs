@@ -1,0 +1,14 @@
+<h1>Unit data edit</h1>
+<form action="/unit/update/<%= unit.id %>" method="POST">
+  <div>Name: <input value="<%= unit.name %>" name="name" type="text"/></div>
+  <div>Health: <input value="<%= unit.health %>" name="health" type="text"/></div>
+  <div>Damage: <input value="<%= unit.damage %>" name="damage" type="text"/></div>
+  <div>Cost: <input value="<%= unit.cost %>" name="cost" type="text"/></div>
+  <div>Type: <select name="type">
+    <option value="none" <%= (unit.type == 'none') ? 'selected' : ''%>>None</option>
+    <option value="light" <%= (unit.type == 'light')  ? 'selected' : ''%>>Light</option>
+    <option value="armored" <%= (unit.type == 'armored')  ? 'selected' : ''%>>Armored</option>
+    <option value="heroic" <%= (unit.type == 'heroic')  ? 'selected' : ''%>>Heroic</option>
+  </select></div>
+  <input type="submit"/>
+</form>
