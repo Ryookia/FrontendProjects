@@ -1,13 +1,20 @@
 <head>
-  <title>task5</title>
+  <title>2020 Top disasters</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Vote!</h1>
+  {{ >sortingPanel }}
+  {{# each disasters}}
+    {{> disasterEntry}}
+  {{/ each}}
+  {{ >disasterList}}
 
-  {{> hello}}
-  {{> info}}
+  {{ >addEntry}}
+
 </body>
+
+
 
 <template name="hello">
   <button>Click Me</button>
@@ -22,4 +29,34 @@
     <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
     <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
   </ul>
+</template>
+
+<template name="addEntry">
+  <form>
+    <div class="form-group">
+      <label>Disaster name</label>
+      <input type="text" name="name" class="form-control" placeholder="Disaster name">
+
+      <button type="submit">Add disaster</button>
+    </div>
+  </form>
+</template>
+
+<template name="disasterEntry">
+  <div data-id="{{ _id }}" class="disasterEntry">
+    {{name}} {{voteCount}}
+    <button type="submit" class="voteup" data-id="{{ _id }}">+</button>
+    <button type="submit" class="votedown" data-id="{{ _id }}">-</button>
+    <button type="submit" class="delete" data_id="{{ _id }}">Remove</button>
+  </div>
+</template>
+
+<template name="disasterList">
+  {{# each disasters}}
+    {{> disasterEntry}}
+  {{/ each}}
+</template>
+
+<template name="sortingPanel">
+  <button>Sort</button>
 </template>

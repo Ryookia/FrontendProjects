@@ -1,0 +1,8 @@
+<template name="disasterEntry">
+  <div data-id="{{ _id }}" class="disasterEntry">
+    {{name}} {{votecount}}
+    <a href="voteup" class="voteup" data-id="{{ _id }}">+</a>
+    <a href="votedown" class="votedown" data-id="{{ _id }}">-</a>
+    <a href="delete" class="delete" data_id="{{ _id }}">Remove</a>
+  </div>
+</template>
